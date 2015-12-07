@@ -1,22 +1,24 @@
-<div class="container">
+<% if !user_signed_in? %>
+<div class="jumbotron">
+  <h1>Your Favourite Christian Movies</h1>
+  <p>Review your favourite Christian movies here and let promote the gospel to our friends.</p>
 
-<h1>Listing Movies</h1>
+  <p><%= link_to "Sign Up To Write A Review", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  </div>
+<% end %>
 
 
+<div class="well">
+<div class="row">
     <% @movies.each do |movie| %>
-      <p><%= image_tag movie.image.url(:medium) %></p>
-    </p><%= movie.title %></p>
-        </p><%= movie.director %></p>
-        </p><%= movie.movie_length %></p>
-        </p><%= movie.description %></p>
-        </p><%= movie.rating %></p>
-        <%= link_to 'Show', movie %>
-        <%= link_to 'Edit', edit_movie_path(movie) %>
-      <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="col-sm-6 col-md-3">
 
-    <% end %>
+<div class="thumbnail">
 
-<br>
+      <%= link_to (image_tag movie.image.url(:medium), class: "image"), movie %>
 
-<%= link_to 'New Movie', new_movie_path %>
+      </div>
+      </div>
+      <% end %>
+</div>
 </div>
