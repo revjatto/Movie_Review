@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 
-
+#gem 'rmagick', '~> 2.15', '>= 2.15.4'
 gem 'paperclip', '~> 4.3', '>= 4.3.2'
+gem 'cocaine', '~> 0.5.8'
 gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

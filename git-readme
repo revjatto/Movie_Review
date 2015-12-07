@@ -1,8 +1,8 @@
 git init
 git add README.md
 git commit -m "first commit"
-git remote add origin https://github.com/revjatto/MovieReview.git
-git push -u origin master
+git remote add myorigin https://github.com/revjatto/Movie_Review.git
+git push -u myorigin master
 
 @movie = Movie.last
 
@@ -11,3 +11,6 @@ git push -u origin master
 @movie.user_id = 1
 @movie.save
 @movie
+
+adding image using paperclip
+rails generate paperclip movie image
