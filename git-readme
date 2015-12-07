@@ -1,0 +1,13 @@
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/revjatto/MovieReview.git
+git push -u origin master
+
+@movie = Movie.last
+
+@user = User.first
+@movie = Movie.find(1)
+@movie.user_id = 1
+@movie.save
+@movie
