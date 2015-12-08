@@ -1,0 +1,61 @@
+git init
+git add README.md
+git commit -m "first commit"
+git remote add myorigin https://github.com/revjatto/Movie_Review.git
+git push -u morigin master
+
+@movie = Movie.last
+
+@user = User.first
+@movie = Movie.find(1)
+@movie.user_id = 1
+@movie.save
+@movie
+
+adding images to your rail application
+firstly: install ImageMagick by following the instruction on this video to the letter
+https://www.youtube.com/watch?v=gEWAVlNCKhg
+rails generate paperclip movie image
+
+adding review (another function to your application)
+
+Generate a scaffold of the function e.g review
+rails generate scaffold Review rating:integer comment:text
+
+then run:
+
+ rake db:migrate
+
+adding a review to a user: generate a migration
+
+rails generate migration add_user_id_to_reviews user_id:integer
+then do:
+ rake db:migrate
+
+ to associate a user to a review
+ first go to model in the app folder and add association between movie and review
+ like this:
+ review.rb add
+ belongs_to :user
+
+ user.rb
+ has_many :review, dependant: :destroy
+
+Update your ReviewController as follows:
+def create
+@review = Review.new(review_params)
+@review.user_id = current_user_id
+end
+Also add this to your controller just below the first before_action:
+before_action :authenticate_user
+
+
+ go to rails console by typing
+ rails console
+ find the first review or a review by id
+ like:
+ @review = Review.first
+ then associate it to a user_id
+
+ go to show.html.erb for review_params view
+ 
